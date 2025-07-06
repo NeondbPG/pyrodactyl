@@ -7,8 +7,6 @@ import UpdatePasswordForm from '@/components/dashboard/forms/UpdatePasswordForm'
 import ContentBox from '@/components/elements/ContentBox';
 import PageContentBlock from '@/components/elements/PageContentBlock';
 
-import Code from '../elements/Code';
-
 export default () => {
     const { state } = useLocation();
 
@@ -32,18 +30,6 @@ export default () => {
                 </ContentBox>
                 <ContentBox title={'Multi-Factor Authentication'}>
                     <ConfigureTwoFactorForm />
-                </ContentBox>
-                <h2 className='mt-8 font-extrabold text-2xl'>App</h2>
-                <ContentBox title={'Panel Version'}>
-                    <p className='text-sm mb-4'>
-                        This is useful to provide Pyro staff if you run into an unexpected issue.
-                    </p>
-                    <div className='flex flex-col gap-4'>
-                        <Code>
-                            Version: {import.meta.env.VITE_PYRODACTYL_VERSION} - {import.meta.env.VITE_BRANCH_NAME}
-                        </Code>
-                        <Code>Commit : {import.meta.env.VITE_COMMIT_HASH.slice(0, 7)}</Code>
-                    </div>
                 </ContentBox>
             </div>
         </PageContentBlock>
