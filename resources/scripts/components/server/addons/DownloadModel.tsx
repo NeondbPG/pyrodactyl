@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 import FlashMessageRender from '@/components/FlashMessageRender';
-import DropdownButton from '@/components/server/modrinth/Dropdown';
+import DropdownButton from '@/components/server/addons/Dropdown';
 
 import asModal from '@/hoc/asModal';
 

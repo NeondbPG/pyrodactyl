@@ -10,7 +10,7 @@ import BackupContainer from '@/components/server/backups/BackupContainer';
 import ServerConsole from '@/components/server/console/ServerConsoleContainer';
 import DatabasesContainer from '@/components/server/databases/DatabasesContainer';
 import FileManagerContainer from '@/components/server/files/FileManagerContainer';
-import ModrinthContainer from '@/components/server/modrinth/ModrinthContainer';
+import AddonsContainer from '@/components/server/addons/AddonsContainer';
 import NetworkContainer from '@/components/server/network/NetworkContainer';
 import ScheduleContainer from '@/components/server/schedules/ScheduleContainer';
 import SettingsContainer from '@/components/server/settings/SettingsContainer';
@@ -167,11 +167,11 @@ export default {
             component: ShellContainer,
         },
         {
-            route: 'mods/*',
-            path: 'mods',
-            permission: ['modrinth.download', 'settings.modrinth'],
-            name: 'Modrinth',
-            component: ModrinthContainer,
+            route: 'addons/*',
+            path: 'addons',
+            permission: ['addons.download', 'settings.addons'],
+            name: 'Addons',
+            component: AddonsContainer,
         },
         {
             route: 'activity/*',

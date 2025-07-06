@@ -77,7 +77,7 @@ export default () => {
                                 <LoaderSelector
                                     appVersion={appVersion}
                                     baseUrl={url}
-                                    // onSelectionChange={(selectedLoaders) => updateSettings('loaders', selectedLoaders)}
+                                // onSelectionChange={(selectedLoaders) => updateSettings('loaders', selectedLoaders)}
                                 />
                             </ContentBox>
                         </ModBox>
@@ -88,7 +88,7 @@ export default () => {
                                 <GameVersionSelector
                                     appVersion={appVersion}
                                     baseUrl={url}
-                                    // onSelectionChange={(selectedVersions) => updateSettings('versions', selectedVersions)}
+                                // onSelectionChange={(selectedVersions) => updateSettings('versions', selectedVersions)}
                                 />
                             </ContentBox>
                         </ModBox>
@@ -130,7 +130,7 @@ export default () => {
                             type='text'
                             placeholder='Search'
                             onChange={(event) => debouncedSearchTerm(event.target.value)}
-                            // onChange={(event) => console.log(event.target.value)}
+                        // onChange={(event) => console.log(event.target.value)}
                         />
                     </div>
 

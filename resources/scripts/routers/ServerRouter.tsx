@@ -276,7 +276,7 @@ export default () => {
     const NavigationSchedules = useRef(null);
     const NavigationSettings = useRef(null);
     const NavigationActivity = useRef(null);
-    const NavigationMod = useRef(null);
+    const NavigationAddon = useRef(null);
     const NavigationShell = useRef(null);
 
     const calculateTop = (pathname: string) => {
@@ -294,7 +294,7 @@ export default () => {
         const ButtonSettings = NavigationSettings.current;
         const ButtonShell = NavigationShell.current;
         const ButtonActivity = NavigationActivity.current;
-        const ButtonMod = NavigationMod.current;
+        const ButtonAddon = NavigationAddon.current;
 
         // Perfectly center the page highlighter with simple math.
         // Height of navigation links (56) minus highlight height (40) equals 16. 16 devided by 2 is 8.
@@ -326,8 +326,8 @@ export default () => {
             return (ButtonShell as any).offsetTop + HighlightOffset;
         if (pathname.endsWith(`/server/${id}/activity`) && ButtonActivity != null)
             return (ButtonActivity as any).offsetTop + HighlightOffset;
-        if (pathname.endsWith(`/server/${id}/mods`) && ButtonMod != null)
-            return (ButtonMod as any).offsetTop + HighlightOffset;
+        if (pathname.endsWith(`/server/${id}/addons`) && ButtonAddon != null)
+            return (ButtonAddon as any).offsetTop + HighlightOffset;
 
         return '0';
     };
@@ -554,19 +554,18 @@ export default () => {
                                                 <p>Activity</p>
                                             </NavLink>
                                         </Can>
-                                        {/* TODO: finish modrinth support *\}
-                    {/* <Can action={['modrinth.*', 'modrinth.download']} matchAny>
-                        <NavLink
-                            className='flex flex-row items-center sm:hidden md:show'
-                            ref={NavigationMod}
-                            to={`/server/${id}/mods`}
-                            onClick={toggleSidebar}
-                            end
-                        >
-                            <ModrinthLogo />
-                            <p>Mods/Plugins</p>
-                        </NavLink>
-                    </Can> */}
+                                        <Can action={['addons.*', 'addons.download']} matchAny>
+                                            <NavLink
+                                                className='flex flex-row items-center transition-colors duration-200 hover:bg-[#ffffff11] rounded-md'
+                                                ref={NavigationAddon}
+                                                to={`/server/${id}/addons`}
+                                                onClick={toggleSidebar}
+                                                end
+                                            >
+                                                <HugeIconsController fill='currentColor' />
+                                                <p>Addons Manager</p>
+                                            </NavLink>
+                                        </Can>
                                     </>
                                 )}
                                 <Can action={'startup.software'}>
@@ -600,7 +599,7 @@ export default () => {
                                 className='relative inset-[1px] w-full h-full overflow-y-auto overflow-x-hidden rounded-md bg-[#08080875]'
                             >
                                 {inConflictState &&
-                                (!rootAdmin || (rootAdmin && !location.pathname.endsWith(`/server/${id}`))) ? (
+                                    (!rootAdmin || (rootAdmin && !location.pathname.endsWith(`/server/${id}`))) ? (
                                     <ConflictStateRenderer />
                                 ) : (
                                     <ErrorBoundary>
